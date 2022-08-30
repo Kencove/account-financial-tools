@@ -19,4 +19,4 @@ class AccountMoveLine(models.Model):
     @api.depends("payment_id", "payment_id.check_number")
     def _compute_check_number(self):
         for rec in self:
-            rec.check_number = rec.payment_id and rec.payment_id.check_number or ""
+            rec.check_number = rec.payment_id.check_number or ""
